@@ -1,5 +1,8 @@
+import sys
 import CNF_functions
 from CNF_functions import *
+
+print ('Output file name is', sys.argv[1])
 
 opt_num = 0
 while (opt_num != '3'):
@@ -16,7 +19,7 @@ while (opt_num != '3'):
     if opt_num == '3':
         exit()
 
-    file = open('/home/nata/1.SPBU_homework/ВКР/DIMACS.txt', 'w')
+    file = open(sys.argv[1], 'w')
 
     CNF_dict = dict()
 
@@ -348,7 +351,7 @@ while (opt_num != '3'):
                             add_pos_neg_dis(CNF_dict, X7_pos, X7_neg, pos_num_dis2, neg_num_dis1, keys_pos, keys_neg)
 
         print_res_len (CNF_dict, 7)
-    print ('Final CNF in DIMACS.txt')
+    print ('The final CNF in DIMACS format is in the file', sys.argv[1])
     print()
 
     CNF_sort = list()
