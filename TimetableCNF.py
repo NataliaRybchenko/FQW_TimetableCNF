@@ -279,7 +279,7 @@ while (opt_num != '3'):
                     if QNZW[n][z][0] > 0 or QNZW[n][z][1] > 0:
                         pos_num_dis1 = D_num*C_num*R_num*E_num - QNZW[n][z][0] + 1
                         pos_num_dis2 = D_num*C_num*R_num*E_num - QNZW[n][z][1] + 1
-                        in_dis_num = min(pos_num_dis1,pos_num_dis2)
+                        in_dis_num = max(pos_num_dis1,pos_num_dis2)
                         # Все дизъюнкты, добавленные до этого, состояли исключительно из переменных с отрицаниями => необходимости в провке поглощения нет
                         Cnk = combinations(X7_pos, in_dis_num)
                         for Cnk_i in Cnk:
