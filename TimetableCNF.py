@@ -369,5 +369,6 @@ while (opt_num != '3'):
     for dis in CNF_sort:
         for x in dis:        
             file.write(x + ' ')
+        file.write('0')
         file.write('\n')
 
