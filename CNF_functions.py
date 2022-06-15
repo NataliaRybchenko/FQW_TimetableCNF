@@ -63,10 +63,14 @@ def add_dis_one_pol (pol, CNF_dict, keys, X, in_dis_num, X_possible_str, X_possi
                         Cnk_i_others = list(X_possible_str - Cnk_i)
                         comb_num = factorial(len(Cnk_i_others))/(factorial(s-in_dis_num) * factorial(len(Cnk_i_others) - (s-in_dis_num)))
                         if len(CNF_dict[pol][s]) < comb_num:
+                            to_remove = set()
                             for dis3 in CNF_dict[pol][s]:
                                 if Cnk_i.issubset(dis3):
-                                    CNF_dict[pol][s].remove(dis3)
+                                    to_remove.add(dis3)
                                     # print ('remove: ', dis3)
+                            for dis3 in to_remove:
+                                CNF_dict[pol][s].remove(dis3)
+
                         else:
                             Cnk_inDisNum_i = combinations(Cnk_i_others, s-in_dis_num)
                             for cnk in Cnk_inDisNum_i:
